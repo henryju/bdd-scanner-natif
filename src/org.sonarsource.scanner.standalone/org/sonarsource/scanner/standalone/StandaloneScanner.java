@@ -12,8 +12,11 @@ public class StandaloneScanner {
     EmbeddedScanner scanner = EmbeddedScanner.create(new StdOutLogOutput())
       .addGlobalProperties(envProps);
     scanner.start();
-    scanner.runAnalysis(envProps);
-    scanner.stop();
+    try {
+      scanner.runAnalysis(envProps);
+    } finally {
+      scanner.stop();
+    }
   }
 
 }
