@@ -15,7 +15,11 @@ public class StandaloneScanner {
     try {
       scanner.runAnalysis(envProps);
     } finally {
-      scanner.stop();
+      try {
+        scanner.stop();
+      } catch (Throwable t) {
+        // Ignore
+      }
     }
   }
 
