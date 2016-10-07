@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export JAVA_HOME=FIXME
-export PATH=$JAVA_HOME/bin:$PATH
+# JAVA_HOME is supposed to point to a JDK9 install
+# And $JAVA_HOME/bin is supposed to be in the PATH
 
 echo "Cleaning..."
 rm -rf mods
@@ -19,4 +19,3 @@ jar --create --file mlib/org.sonarsource.scanner.standalone.jar --main-class org
 
 echo "Linking..."
 jlink --module-path "$JAVA_HOME/jmods:mlib:lib" --add-modules org.sonarsource.scanner.standalone --output app
-

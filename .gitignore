@@ -4,6 +4,8 @@ src/main/resources/static/SonarAnalyzer.zip
 src/main/resources/static/SonarQube.MSBuild.Runner.Implementation.zip
 src/main/resources/static/version.txt
 src/main/resources/org/sonar/plugins/csharp/*.xml
+app
+mlib
 
 # Maven
 target/
