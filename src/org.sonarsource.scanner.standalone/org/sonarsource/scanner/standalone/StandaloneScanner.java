@@ -19,6 +19,7 @@ public class StandaloneScanner {
         scanner.stop();
       } catch (Throwable t) {
         // Ignore
+        System.exit(0);
       }
     }
   }
