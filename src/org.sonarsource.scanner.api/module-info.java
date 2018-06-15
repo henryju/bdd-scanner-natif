@@ -4,14 +4,14 @@ module org.sonarsource.scanner.api {
   requires java.xml;
   requires java.naming;
   // gson
-  requires java.sql;
-  requires jdk.unsupported;
-
+  requires java.sql;// https://github.com/google/gson/issues/134
+  
   //cglib
   requires java.desktop;
   
   // persisit
   requires java.management;
+  requires java.rmi;
   
   exports org.sonarsource.scanner.api;
   exports org.sonarsource.scanner.api.internal.batch;

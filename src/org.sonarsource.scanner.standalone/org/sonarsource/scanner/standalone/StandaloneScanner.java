@@ -1,6 +1,7 @@
 package org.sonarsource.scanner.standalone;
 
 import java.util.Properties;
+import java.util.Map;
 import org.sonarsource.scanner.api.EmbeddedScanner;
 import org.sonarsource.scanner.api.ScanProperties;
 import org.sonarsource.scanner.api.StdOutLogOutput;
@@ -14,19 +15,10 @@ public class StandaloneScanner {
       System.out.println("SonarQube Scanner analysis skipped");
       return;
     }
-    EmbeddedScanner scanner = EmbeddedScanner.create(new StdOutLogOutput())
-      .addGlobalProperties(envProps);
+    EmbeddedScanner scanner = EmbeddedScanner.create("standalone", "0.3", new StdOutLogOutput())
+      .addGlobalProperties((Map) envProps);
     scanner.start();
-    try {
-      scanner.runAnalysis(envProps);
-    } finally {
-      try {
-        scanner.stop();
-      } catch (Throwable t) {
-        // Ignore
-        System.exit(0);
-      }
-    }
+    scanner.execute((Map) envProps);
   }
 
 }
